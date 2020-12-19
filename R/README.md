@@ -4,6 +4,11 @@ Cheat sheet for some convenient commands in R.
 
 ## Basics
 
+- Open documentation for a library, e.g. ggplot2.
+```R
+library(help = "ggplot2")
+```
+
 - Some basic operations and functions on a vector x.
 ```R
 log(x) # Natural log.
@@ -83,9 +88,21 @@ solve(A) # Inverse of A, in general solve(A,b) solves Ax=b wrt x.
 det(A) # Determinant of A.
 ```
 
-## Plots
+## Distributions
 
-- Make figure with e.g. two subplots, divided into two rows and one column. 
+All distributions in R have several different functions. For example, the normal distribution has the following functions. 
+```R
+dnorm() # Density (pdf).
+pnorm() # Cumulative distribution function (cdf)
+qnorm() # Quantile function (inverse cumulative distribution function).
+rnorm() # Random generation of values from the distribution.
+```
+
+## Regression
+
+## Plots (base)
+
+- Make figure with e.g. two subplots, divided into two rows and one column. par() can be used to set or query graphical parameters in many ways.  
 ```R
 par(mfrow=c(2,1))
 ```
@@ -100,6 +117,57 @@ plot(x1, y1, main = "My second plot")
 
 dev.off() # Close the plotting environment. 
 ```
+
+- Add text.
+```R
+text(x, y) # Wirte test at coordinates (x,y).
+mtext() # Write text into the margins of a plot. 
+```
+
+- Add straight lines to plot (with arguments).
+```R
+abline()
+```
+
+- Fit linear model (with arguments) This can then be plotted with abline() afterwards.
+```R
+lm()
+```
+
+- Plot histogram (with arguments).
+```R
+hist()
+```
+
+- Plot lines in plot (with arguments).
+```R
+lines()
+```
+
+- Produce a matrix of scatterplots. 
+```R
+pairs()
+```
+
+- Other types of plots.
+```R
+barplot() 
+boxplot()
+```
+
+- Remove plots already generated and "reset canvas".
+```R
+graphics.off()
+```
+- [Some examples of plotting from IMF001](plottingWithBaseR.R)
+
+
+## Plots (ggplot)
+
+Can plot scatter plots, density plots, histograms, boxplots, pair plots and much more. 
+
+- [Some examples of plotting from IMF001](plottingWithGgplot2.R)
+
 
 ## Files
 
@@ -121,7 +189,7 @@ names(dataframe) # Variable names.
 dim(dataframe) # Dimensions.
 head(dataframe, n = 6) # Show first n (default is 6 already) values per column.
 tail(dataframe, n = 6) # Show last n (default is 6 already) values per column.
-str(datafram) # Display structure: data types, some abbreviated values, etc. 
+str(dataframe) # Display structure: data types, some abbreviated values, etc. 
 summary(dataframe) # Show convenient summary of essential statistics. 
 ```
 
@@ -130,13 +198,31 @@ summary(dataframe) # Show convenient summary of essential statistics.
 attach(dataframe)
 ```
 
-## Extra
+## Working with data.
 
+- Some functions that might be useful.
+```R
+split()
+aggregate()
+ordered()
+```
+
+## Extras
+
+- Apply a function over a list or vector. 
+```R
+lapply()
+```
 - Clear R's brain.
 ```R
 rm(list=ls())
 ```
+- [R for Data Science](https://r4ds.had.co.nz/index.html)
+
+- [Cheat Sheets](https://rstudio.com/resources/cheatsheets/)
 
 - [Perhaps useful when working with data (?)](https://www.datacamp.com/community/tutorials/r-data-import-tutorial?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=&utm_creative=332602034349&utm_targetid=aud-392016246653:dsa-473406573035&utm_loc_interest_ms=&utm_loc_physical_ms=1010976&gclid=Cj0KCQjwhb36BRCfARIsAKcXh6EeW4E0Cx9E84WvjoWgjiR2fI5RysSu9kSOHJ90HFKXaRjqGM9-PPcaApoZEALw_wcB)
 
 - [Guide to exporting nice plots in R](https://www.r-bloggers.com/2013/02/exporting-nice-plots-in-r/)
+
+- [Avoid for-loops in R](https://www.r-bloggers.com/2013/01/for-loops-and-how-to-avoid-them/)
