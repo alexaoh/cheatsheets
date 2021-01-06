@@ -42,9 +42,9 @@ ORDER BY ... DESC;
 ## Set Operators
 
 ```sql
-UNION
-INTERSECT
-EXCEPT
+UNION;
+INTERSECT;
+EXCEPT;
 ```
 
 ## Subqueries in WHERE
@@ -57,13 +57,13 @@ Can add SELECT-subqueries in the WHERE-clause, which can be useful in some situa
 ## Basic Operators
 
 ```sql
-IN
-NOT IN
+IN;
+NOT IN;
 <> -- Not equals. 
-EXISTS 
-NOT EXISTS
-ALL
-ANY
+EXISTS;
+NOT EXISTS;
+ALL;
+ANY;
 /* It is always possible to write queries that use ALL/ANY with EXISTS/NOT EXISTS, 
    which is useful e.g. if the system does not support ALL/ANY. 
    E.g. sqlite does not support ALL/ANY */

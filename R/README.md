@@ -47,6 +47,25 @@ factor.variables <- factor(c('elements of vector'))
 table(factor.variables)
 ```
 
+## Vectors
+
+Different ways to initialize vectors.
+
+- Replicate *element* *times* times.
+```R
+rep(element, times)
+```
+
+- Empty vector.
+```R
+c()
+```
+
+- Generate a sequence.
+```R
+seq(from, to, by)
+```
+
 ## Matrices
 
 - Matrix multiplication operator.
@@ -198,7 +217,7 @@ summary(dataframe) # Show convenient summary of essential statistics.
 attach(dataframe)
 ```
 
-## Working with data.
+## Working with data
 
 - Some functions that might be useful.
 ```R
@@ -209,9 +228,11 @@ ordered()
 
 ## Extras
 
-- Apply a function over a list or vector. 
+- Apply a function to elements of input data structure.
 ```R
-lapply()
+apply(x, MARGIN, FUN) # Apply FUN to rows/columns or both of data frame or matrix. Output: vector, list or array.
+lapply(x, FUN) # Apply FUN to all elements of list, vector or data frame. Output: list.
+sapply(x, FUN) # Apply FUN to all elements of list, vector or data frame. Output: vector or matrix. 
 ```
 - Clear R's brain.
 ```R
