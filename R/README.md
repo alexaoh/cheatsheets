@@ -119,6 +119,11 @@ rnorm() # Random generation of values from the distribution.
 
 ## Regression
 
+- Multiple linear regression can be fitted to a given dataset d.data with columns y, x1, x2, x3 as
+```R
+lm(y ~ x1 + x2  + x3, data=d.data)
+```
+
 ## Plots (base)
 
 - Make figure with e.g. two subplots, divided into two rows and one column. par() can be used to set or query graphical parameters in many ways.  
@@ -224,6 +229,20 @@ attach(dataframe)
 split()
 aggregate()
 ordered()
+diff()
+with()
+```
+
+## Randomizing and sampling
+
+- Set seed when doing random samples. 
+```R
+set.seed()
+```
+
+- Draw a sample from vector x, of size n. 
+```R
+sample(x, n, replace = TRUE/FALSE)
 ```
 
 ## Extras
@@ -233,7 +252,9 @@ ordered()
 apply(x, MARGIN, FUN) # Apply FUN to rows/columns or both of data frame or matrix. Output: vector, list or array.
 lapply(x, FUN) # Apply FUN to all elements of list, vector or data frame. Output: list.
 sapply(x, FUN) # Apply FUN to all elements of list, vector or data frame. Output: vector or matrix. 
+tapply()
 ```
+
 - Clear R's brain.
 ```R
 rm(list=ls())
