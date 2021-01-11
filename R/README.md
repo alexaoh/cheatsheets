@@ -119,9 +119,17 @@ rnorm() # Random generation of values from the distribution.
 
 ## Regression
 
-- Multiple linear regression can be fitted to a given dataset d.data with columns y, x1, x2, x3 as
+- (Multiple) linear regression can be fitted to a given dataset d.data with columns y, x1, x2, x3 as
 ```R
 lm(y ~ x1 + x2  + x3, data=d.data)
+```
+
+By replacing the variables after the tilde with '.', all the variables in the dataset d.data will be fitted. 
+
+- Look at the residuals. Could look at the residuals by plotting the fitted linear regression. However, a more neat way to do it is
+```R
+library(ggfortify)
+autoplot(<fitted linear regression model with lm()>)
 ```
 
 ## Plots (base)
@@ -245,6 +253,26 @@ set.seed()
 sample(x, n, replace = TRUE/FALSE)
 ```
 
+## Introduction to the Tidyverse
+
+[List](https://tidyverse.tidyverse.org/) of the set of packages that are included when installing the *tidyverse* collection of packages.
+
+### dplyr
+
+The pipe operator (`%>%`) is key! (Ctrl + shift + m in RStudio)
+
+Some notable functions from this package are
+
+```R
+select() # Selecting columns. Extract existing variables. 
+filter() # Filter rows. Extract existing observations. 
+mutate() # Add new columns to existing data frames. Derive new variables from existing variables. 
+summarise() # Summarise the data. Change the unit of analysis. 
+arrange() # Rearrange rows depending on column values. 
+group_by() # Group data. 
+```
+Some [examples](Tidyverse.R) of how the dplyr package can be used.
+
 ## Extras
 
 - Apply a function to elements of input data structure.
@@ -260,6 +288,10 @@ tapply()
 rm(list=ls())
 ```
 - [R for Data Science](https://r4ds.had.co.nz/index.html)
+
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+
+- [*R Packages* "Git and GitHub"](https://r-pkgs.org/git.html)
 
 - [Cheat Sheets](https://rstudio.com/resources/cheatsheets/)
 
